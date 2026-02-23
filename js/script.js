@@ -27,12 +27,6 @@ document.getElementById('job-cards').addEventListener('click', function (event) 
 
 
     }
-    // if (target.classList.contains('apply')) {
-    //     const isApplied = target.innerText === "Applied";
-
-    //     target.innerText = isApplied ? "Not Applied" : "Applied";
-    //     target.classList.toggle("btn-primary", !isApplied);
-    // }
 
     if (target.innerText.toLowerCase() === 'interview' && target.classList.contains('btn-success')) {
         const applyBtn = card.querySelector('.apply');
