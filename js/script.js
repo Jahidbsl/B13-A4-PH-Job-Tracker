@@ -3,11 +3,11 @@ function updateCounters() {
 
     const allCards = document.querySelectorAll('#job-cards .card');
     const totalCount = allCards.length;
+    const interviewCount = document.querySelectorAll('.card[data-status ="interview"]');
+    const rejectedCount = document.querySelectorAll('.card[data-status ="rejected"]');
     document.getElementById("total-count").innerText = totalCount;
     document.getElementById("total-job-count").innerText = totalCount;
-    const interviewCount = document.querySelectorAll('.card[data-status ="interview"]');
     document.getElementById('interview-count').innerText = interviewCount.length;
-    const rejectedCount = document.querySelectorAll('.card[data-status ="rejected"]');
     document.getElementById('rejected-count').innerText = rejectedCount.length;
 }
 // navbar toggle
