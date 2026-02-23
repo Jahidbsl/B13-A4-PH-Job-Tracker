@@ -31,7 +31,7 @@ document.getElementById('job-cards').addEventListener('click', function (event) 
     if (target.innerText.toLowerCase() === 'interview' && target.classList.contains('btn-success')) {
         const applyBtn = card.querySelector('.apply');
         if (applyBtn) {
-            applyBtn.innerText = "Applied";
+            applyBtn.innerText = "Interview";
             applyBtn.classList.remove("hidden");
             card.setAttribute('data-status', 'interview');
             alert("Status updated to Interview!");
@@ -47,8 +47,9 @@ document.getElementById('job-cards').addEventListener('click', function (event) 
     if (target.innerText.toLowerCase() === 'rejected' && target.classList.contains('btn-error')) {
         const card = target.closest('.card');
         const applyBtn = card.querySelector('.apply');
-        if (applyBtn || applyBtn.innerText === "Applied") {
-            applyBtn.classList.add("hidden");
+        if (applyBtn || applyBtn.innerText === "Interview") {
+            applyBtn.innerText = "Rejected";
+            applyBtn.classList.remove("hidden");
             card.setAttribute('data-status', 'rejected');
             alert("Status updated to Rejected");
             updateCounters();
