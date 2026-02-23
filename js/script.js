@@ -9,6 +9,7 @@ function updateCounters() {
     const rejectedCount = document.querySelectorAll('.card[data-status ="rejected"]');
     document.getElementById('rejected-count').innerText = rejectedCount.length;
 }
+// navbar toggle
 function toggleStyle(id) {
     // console.log("toggle clicked")
     const buttons = document.querySelectorAll('.toggle-btn');
@@ -20,8 +21,7 @@ function toggleStyle(id) {
         selected.classList.add("btn-primary");
     }
     // console.log(selected);
-
-
+    
     const sectionEmpty = document.querySelector(".section-empty");
     const allCards = document.querySelectorAll('#job-cards .card');
     let visibleCount = 0;
