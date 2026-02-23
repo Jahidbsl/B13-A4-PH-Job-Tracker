@@ -10,42 +10,7 @@ function updateCounters() {
     document.getElementById('interview-count').innerText = interviewCount.length;
     document.getElementById('rejected-count').innerText = rejectedCount.length;
 }
-// navbar toggle
-function toggleStyle(id) {
-    // console.log("toggle clicked")
-    const buttons = document.querySelectorAll('.toggle-btn');
-    for (btn of buttons) {
-        btn.classList.remove("btn-primary");
-    }
-    const selected = document.getElementById(id);
-    if (selected) {
-        selected.classList.add("btn-primary");
-    }
-    // console.log(selected);
 
-    const sectionEmpty = document.querySelector(".section-empty");
-    const allCards = document.querySelectorAll('#job-cards .card');
-    let visibleCount = 0;
-    for (card of allCards) {
-        const status = card.getAttribute('data-status');
-
-        if (id === 'all-job' || status === id) {
-            card.style.display = "block";
-            visibleCount++;
-        }
-        else {
-            card.style.display = "none";
-
-        }
-    }
-    if (visibleCount === 0) {
-        sectionEmpty.classList.remove('hidden');
-
-    } else {
-        sectionEmpty.classList.add("hidden");
-    }
-
-}
 
 document.getElementById('job-cards').addEventListener('click', function (event) {
     const target = event.target;
@@ -91,5 +56,42 @@ document.getElementById('job-cards').addEventListener('click', function (event) 
 
 
 });
+
+// navbar toggle
+function toggleStyle(id) {
+    // console.log("toggle clicked")
+    const buttons = document.querySelectorAll('.toggle-btn');
+    for (btn of buttons) {
+        btn.classList.remove("btn-primary");
+    }
+    const selected = document.getElementById(id);
+    if (selected) {
+        selected.classList.add("btn-primary");
+    }
+    // console.log(selected);
+
+    const sectionEmpty = document.querySelector(".section-empty");
+    const allCards = document.querySelectorAll('#job-cards .card');
+    let visibleCount = 0;
+    for (card of allCards) {
+        const status = card.getAttribute('data-status');
+
+        if (id === 'all-job' || status === id) {
+            card.style.display = "block";
+            visibleCount++;
+        }
+        else {
+            card.style.display = "none";
+
+        }
+    }
+    if (visibleCount === 0) {
+        sectionEmpty.classList.remove('hidden');
+
+    } else {
+        sectionEmpty.classList.add("hidden");
+    }
+
+}
 
 
