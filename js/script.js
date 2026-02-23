@@ -54,9 +54,13 @@ document.getElementById('job-cards').addEventListener('click', function (event) 
 
     if (target.classList.contains('fa-trash')) {
         const card = target.closest('.card');
-        confirm(" Want to delete ?")
-        card.remove();
-        updateCounters();
+
+        if (confirm(" Want to delete ?")) {
+            card.remove();
+            updateCounters();
+        }
+
+
     }
     if (target.classList.contains('apply')) {
         const isApplied = target.innerText === "Applied";
