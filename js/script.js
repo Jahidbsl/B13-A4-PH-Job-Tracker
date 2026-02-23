@@ -2,8 +2,9 @@
 function updateCounters() {
 
     const allCards = document.querySelectorAll('#job-cards .card');
-    document.getElementById("total-count").innerText = allCards.length;
-    document.getElementById("total-job-count").innerText = allCards.length;
+    const totalCount = allCards.length;
+    document.getElementById("total-count").innerText = totalCount;
+    document.getElementById("total-job-count").innerText = totalCount;
     const interviewCount = document.querySelectorAll('.card[data-status ="interview"]');
     document.getElementById('interview-count').innerText = interviewCount.length;
     const rejectedCount = document.querySelectorAll('.card[data-status ="rejected"]');
@@ -21,7 +22,7 @@ function toggleStyle(id) {
         selected.classList.add("btn-primary");
     }
     // console.log(selected);
-    
+
     const sectionEmpty = document.querySelector(".section-empty");
     const allCards = document.querySelectorAll('#job-cards .card');
     let visibleCount = 0;
