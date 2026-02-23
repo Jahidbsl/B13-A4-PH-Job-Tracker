@@ -27,31 +27,39 @@ document.getElementById('job-cards').addEventListener('click', function (event) 
 
 
     }
-    if (target.classList.contains('apply')) {
-        const isApplied = target.innerText === "Applied";
+    // if (target.classList.contains('apply')) {
+    //     const isApplied = target.innerText === "Applied";
 
-        target.innerText = isApplied ? "Not Applied" : "Applied";
-        target.classList.toggle("btn-primary", !isApplied);
-    }
+    //     target.innerText = isApplied ? "Not Applied" : "Applied";
+    //     target.classList.toggle("btn-primary", !isApplied);
+    // }
 
     if (target.innerText.toLowerCase() === 'interview' && target.classList.contains('btn-success')) {
         const applyBtn = card.querySelector('.apply');
-        if (applyBtn && applyBtn.innerText === "Applied") {
+        if (applyBtn) {
+            applyBtn.innerText = "Applied";
+            applyBtn.classList.remove("hidden");
             card.setAttribute('data-status', 'interview');
             alert("Status updated to Interview!");
             updateCounters();
 
         }
         else {
-            alert("Apply first!")
+
+            applyBtn.classList.add = "hidden";
         }
     }
 
     if (target.innerText.toLowerCase() === 'rejected' && target.classList.contains('btn-error')) {
         const card = target.closest('.card');
-        card.setAttribute('data-status', 'rejected');
-        alert("Status updated to Rejected");
-        updateCounters();
+        const applyBtn = card.querySelector('.apply');
+        if (applyBtn || applyBtn.innerText === "Applied") {
+            applyBtn.classList.add("hidden");
+            card.setAttribute('data-status', 'rejected');
+            alert("Status updated to Rejected");
+            updateCounters();
+        }
+
     }
 
 
